@@ -3573,7 +3573,7 @@ function renderPhoto(sheetImg, cfg, marks, o) {
   /* ---------- Danh sách chấm (các lần) ---------- */
   let lists = LS.get('omr.lists', null);
   if (!lists || !Array.isArray(lists.items) || !lists.items.length)
-    lists = { items: [{ id: 'l1', name: 'Lần 1' }], active: 'l1' };
+    lists = { items: [{ id: 'l1', name: 'Lần chấm 1' }], active: 'l1' };
   if (
     !lists.items.some(function (l) {
       return l.id === lists.active;
