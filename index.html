@@ -4449,7 +4449,7 @@ function renderPhoto(sheetImg, cfg, marks, o) {
   function renderSheet() {
     if (cfg.sheet === 'm') {
       $('#sheetCard').innerHTML =
-        '<h2>Phiếu NTMIX - 1</h2>' +
+        '<h2>Phiếu NTMIX - 2</h2>' +
         '<p class="hint">Mẫu phiếu NH-01: số báo danh 8 chữ số, mã đề 4 chữ số, Phần I tối đa 12 câu, ' +
         'Phần II tối đa 2 câu, Phần III tối đa 4 câu. Ứng dụng căn ảnh theo 6 ô vuông đen (4 góc ' +
         'và 2 ô giữa hai mép bên), chiều của phiếu nhận ra nhờ các vòng tròn in sẵn.</p>' +
@@ -4464,7 +4464,7 @@ function renderPhoto(sheetImg, cfg, marks, o) {
       $('#pdfBtn').onclick = async function () {
         const msg = $('#pdfMsg');
         this.disabled = true;
-        const st = await saveFile('phieu-nh-01.jpg', await fetchBytes(SHEET3_JPG));
+        const st = await saveFile('phieu-nh-02.jpg', await fetchBytes(SHEET3_JPG));
         if (st === 'saved') msg.textContent = 'Đã lưu ảnh phiếu.';
         else if (st === 'declined') msg.textContent = 'Bạn đã huỷ lưu. Nhấn lại nút để tải.';
         else msg.textContent = 'Chế độ xem này không cho tải file. Nhấn giữ ảnh phiếu ở trên để lưu về máy.';
@@ -4474,7 +4474,7 @@ function renderPhoto(sheetImg, cfg, marks, o) {
     }
     if (cfg.sheet === 'kt') {
       $('#sheetCard').innerHTML =
-        '<h2>Phiếu NTMIX - 2</h2>' +
+        '<h2>Phiếu NTMIX - 1</h2>' +
         '<p class="hint">Mẫu phiếu NH-02 (ngắn): số thứ tự 2 chữ số, mã đề 3 chữ số, Phần I tối đa 10 ' +
         'câu, Phần II tối đa 2 câu, Phần III tối đa 3 câu. Ứng dụng căn ảnh theo 4 ô vuông đen ở ' +
         'góc, ô vuông thứ năm giữa mép trên giúp nhận ra phiếu bị đặt ngược.</p>' +
@@ -4488,7 +4488,7 @@ function renderPhoto(sheetImg, cfg, marks, o) {
       $('#pdfBtn').onclick = async function () {
         const msg = $('#pdfMsg');
         this.disabled = true;
-        const st = await saveFile('phieu-nh-02.jpg', await fetchBytes(SHEET2_JPG));
+        const st = await saveFile('phieu-nh-01.jpg', await fetchBytes(SHEET2_JPG));
         if (st === 'saved') msg.textContent = 'Đã lưu ảnh phiếu.';
         else if (st === 'declined') msg.textContent = 'Bạn đã huỷ lưu. Nhấn lại nút để tải.';
         else msg.textContent = 'Chế độ xem này không cho tải file. Nhấn giữ ảnh phiếu ở trên để lưu về máy.';
@@ -4617,23 +4617,6 @@ function renderPhoto(sheetImg, cfg, marks, o) {
     const img = await curSheetImg();
     if (!img) throw new Error('no sheet');
     const marks = buildMarks(curVer());
-    if (cfg.sheet === 'm')
-      o = Object.assign(
-        {
-          ppm: 1.4,
-          w: 1500,
-          h: 1250,
-          quad: [
-            [105, 120],
-            [1395, 80],
-            [1430, 1150],
-            [75, 1195]
-          ],
-          light: 0.2,
-          noise: 8
-        },
-        o || {}
-      );
     if (cfg.sheet === 'kt')
       o = Object.assign(
         {
@@ -4645,6 +4628,23 @@ function renderPhoto(sheetImg, cfg, marks, o) {
             [1410, 105],
             [1430, 700],
             [75, 750]
+          ],
+          light: 0.2,
+          noise: 8
+        },
+        o || {}
+      );
+    if (cfg.sheet === 'm')
+      o = Object.assign(
+        {
+          ppm: 1.4,
+          w: 1500,
+          h: 1250,
+          quad: [
+            [105, 120],
+            [1395, 80],
+            [1430, 1150],
+            [75, 1195]
           ],
           light: 0.2,
           noise: 8
