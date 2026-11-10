@@ -1,6 +1,6 @@
 {
-  "name": "NTMark v1.1",
-  "short_name": "NTMark v1.1",
+  "name": "NTMark",
+  "short_name": "NTMark",
   "start_url": "https://tungvinhloc.github.io/ntmark/index.html",
   "display": "standalone",
   "background_color": "#121212",
