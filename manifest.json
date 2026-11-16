@@ -7,12 +7,12 @@
   "theme_color": "#121212",
   "icons": [
     {
-      "src": "https://tungvinhloc.github.io/ntmark/logo-ntmark.png",
+      "src": "https://tungvinhloc.github.io/ntmark/assets/logo-ntmark.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://tungvinhloc.github.io/ntmark/logo-ntmark.png",
+      "src": "https://tungvinhloc.github.io/ntmark/assets/logo-ntmark.png",
       "sizes": "512x512",
       "type": "image/png"
     }
