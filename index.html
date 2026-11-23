@@ -1573,7 +1573,7 @@ html, body {
     <section id="v-home" class="view" aria-label="Trang chủ">
       <div class="card" style="text-align: center; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 55vh; border: none; background: transparent;">
         <img src="logo-ntmark.png" width="120" height="120" alt="Logo NTMark" style="border-radius: 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); margin-bottom: 24px;">
-        <h1 style="font-size: 32px; font-weight: 900; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.02em;">NTMIX Pro</h1>
+        <h1 style="font-size: 32px; font-weight: 900; color: var(--ink); margin-bottom: 12px; letter-spacing: -0.02em;">NTMark Pro</h1>
         <div style="font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 32px;">
           <b style="color: var(--fg); font-size: 17px;">Tác giả: Nguyễn Thanh Tùng</b><br>
           Giáo viên Toán trường THPT Vinh Xuân<br>Thành Phố Huế
@@ -9201,7 +9201,7 @@ let qrState = { kind: 'idle' },
             if (lists.items[idx].cfg) {
               localStorage.setItem('omr.cfg2', JSON.stringify(lists.items[idx].cfg));
             }
-            sessionStorage.setItem('ntmix.openTab', act);
+            sessionStorage.setItem('NTMark.openTab', act);
             location.reload();
           } else {
             const mItem = document.querySelector('.menu-item[data-target="' + act + '"]');
@@ -9224,7 +9224,7 @@ let qrState = { kind: 'idle' },
               }
             }
             localStorage.setItem('omr.lists', JSON.stringify(lists));
-            sessionStorage.setItem('ntmix.openTab', 'batches');
+            sessionStorage.setItem('NTMark.openTab', 'batches');
             location.reload();
           }
         }
@@ -9324,7 +9324,7 @@ let qrState = { kind: 'idle' },
 
       localStorage.setItem('omr.lists', JSON.stringify(lists));
       localStorage.setItem('omr.cfg2', JSON.stringify(newCfg));
-      sessionStorage.setItem('ntmix.openTab', 'scan'); // Tạo xong mở ngay tab Chấm bài
+      sessionStorage.setItem('NTMark.openTab', 'scan'); // Tạo xong mở ngay tab Chấm bài
       location.reload();
     });
   }
@@ -9337,9 +9337,9 @@ let qrState = { kind: 'idle' },
   renderBatchList();
 
   // Khôi phục tab đích sau khi tạo/chuyển lần chấm
-  const pendingTab = sessionStorage.getItem('ntmix.openTab');
+  const pendingTab = sessionStorage.getItem('NTMark.openTab');
   if (pendingTab) {
-    sessionStorage.removeItem('ntmix.openTab');
+    sessionStorage.removeItem('NTMark.openTab');
     setTimeout(function() {
       const targetMenu = document.querySelector('.menu-item[data-target="' + pendingTab + '"]');
       if (targetMenu) targetMenu.click();
@@ -9387,10 +9387,10 @@ let qrState = { kind: 'idle' },
     const batchName = getActiveBatchName(listbar);
     listbar.style.display = 'none';
 
-    let bar = document.getElementById('ntmixReviewBar');
+    let bar = document.getElementById('NTMarkReviewBar');
     if (!bar) {
       bar = document.createElement('div');
-      bar.id = 'ntmixReviewBar';
+      bar.id = 'NTMarkReviewBar';
       bar.style.cssText = 'margin: 6px 0 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); display: flex; flex-direction: column; gap: 8px;';
 
       const hasItems = resCard.querySelectorAll('.item').length > 0;
